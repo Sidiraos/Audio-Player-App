@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container" id="audioPlayer">
+        <div class="row">
+            <div class="col-12" id="thumb">
+                    <img src="ressources/thumbs/Solar.png" alt="solar" srcset="">
+            </div>
+            <div class="col-12" id="title">
+                  <p class="artist-name">Solar</p>
+                  <p class="d-flex justify-content-between"><span class="title-name">Betical</span> <span class="orderList ms-auto">1/4</span></p>
+            </div>
+
+            <div class="col-12" id="trackBar">
+                  <div class="track">
+                      <div class="progressBar"></div>
+                  </div>
+
+                  <div class="metaData mt-2">
+                    <p class="d-flex justify-content-between"><span>0:00</span><span class="ms-auto">5:38</span></p>
+                    <audio src="ressources/music/Solar.mp3"></audio>
+                  </div>
+            </div>
+
+            <div class="col-12" id="controls">
+                
+                  <button type = "button"><img src="ressources/icons/shuffle-icon.svg" alt="" srcset="" id="shuffle"></button>
+                  <div class="ms-4">
+                    <button type = "button"><img src="ressources/icons/prev-icon.svg" alt="" srcset="" id="prev"></button>
+                    <button type = "button"><img src="ressources/icons/play-icon.svg" alt="" srcset="" id="play"></button>
+                    <button type = "button"><img src="ressources/icons/next-icon.svg" alt="" srcset="" id="next"></button>
+                  </div>
+                  
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
