@@ -29,18 +29,21 @@
                   </div>
 
                   <div class="metaData mt-2">
-                    <p class="d-flex justify-content-between"><span>0:00</span><span class="ms-auto">5:38</span></p>
-                    <audio src="ressources/music/Solar.mp3"></audio>
+                    <p class="d-flex justify-content-between"><span class="current-time"></span><span class="ms-auto total-duration"></span></p>
+                    <audio id="myAudio">
+                      <source src="ressources/music/Solar.mp3" type="audio/mpeg">
+                      Your browser does not support the audio element.
+                    </audio>
                   </div>
             </div>
 
             <div class="col-12" id="controls">
                 
-                  <button type = "button"><img src="ressources/icons/shuffle-icon.svg" alt="" srcset="" id="shuffle"></button>
+                  <button type = "button" id="shuffle"><img src="ressources/icons/shuffle-icon.svg" alt="" srcset="" ></button>
                   <div class="ms-4">
-                    <button type = "button"><img src="ressources/icons/prev-icon.svg" alt="" srcset="" id="prev"></button>
-                    <button type = "button"><img src="ressources/icons/play-icon.svg" alt="" srcset="" id="play"></button>
-                    <button type = "button"><img src="ressources/icons/next-icon.svg" alt="" srcset="" id="next"></button>
+                    <button type = "button" id="prev"><img src="ressources/icons/prev-icon.svg" alt="prev-icon" srcset="" ></button>
+                    <button type = "button" id="play"><img src="ressources/icons/play-icon.svg" alt="play-icon" srcset="" ></button>
+                    <button type = "button" id="next"><img src="ressources/icons/next-icon.svg" alt="next-icon" srcset="" ></button>
                   </div>
                   
             </div>

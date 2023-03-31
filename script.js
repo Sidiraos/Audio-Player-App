@@ -9,3 +9,56 @@ const playBtn= document.querySelector('#play');
 const nextBtn = document.querySelector('#next');
 const prevBtn = document.querySelector('#prev');
 const shuffleBtn = document.querySelector('#shuffle');
+const audio = document.querySelector('#myAudio');
+
+playBtn.addEventListener('click', playAudio);
+
+function playAudio() {
+  if(myAudio.paused) {
+      audio.play();
+      playBtn.querySelector('img').src = 'ressources/icons/pause-icon.svg'
+      playBtn.querySelector('img').alt = 'pause-icon'
+  } else {
+    audio.pause();
+    playBtn.querySelector('img').src = 'ressources/icons/play-icon.svg'
+    playBtn.querySelector('img').alt = 'play-icon'
+  }
+}
+
+audio.addEventListener('loadedmetadata' , handleChangeMetadata)
+window.addEventListener('load' , handleChangeMetadata)
+const totalDuration = document.querySelector('.total-duration');
+const currentTime = document.querySelector('.current-time');
+
+function handleChangeMetadata(e){
+  showDuration(audio.duration , totalDuration);
+  showDuration(audio.currentTime , currentTime);
+}
+
+function showDuration(durationMediaEl , el){
+  let durationMinute = Math.floor(durationMediaEl / 60);
+  let remainingSecond = Math.floor(durationMediaEl % 60)
+  remainingSecond = remainingSecond < 10 ? "0" + remainingSecond : remainingSecond;
+
+  el.textContent =  durationMinute + ":" + remainingSecond;
+}
+
+audio.addEventListener('timeupdate', onTimeUpdate)
+
+function onTimeUpdate(){
+  showDuration(audio.currentTime , currentTime);
+  updateProgressBar(audio.currentTime , audio.duration , progressBar)
+
+  if(audio.ended) {
+    audio.currentTime = 0;
+    playBtn.querySelector('img').src = 'ressources/icons/play-icon.svg'
+    playBtn.querySelector('img').alt = 'play-icon'
+  }
+}
+
+const track = document.querySelector('.track');
+const progressBar = track.querySelector('.progressBar');
+
+function updateProgressBar(currentTime , totalDuration , el){
+    el.style.width = `${(currentTime / totalDuration ) * 100}%`
+}
