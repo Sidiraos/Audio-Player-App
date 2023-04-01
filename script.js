@@ -98,28 +98,65 @@ function showInformations () {
   audio.src = `ressources/music/${musicsData[i].title}.mp3`;
   audio.addEventListener('loadedmetadata' , handleChangeMetadata)
   audioSrc.src =`ressources/music/${musicsData[i].title}.mp3`;
-  console.log(title, artist, thumbImg, audioSrc)
+  // console.log(title, artist, thumbImg, audioSrc)
 
 }
 // event nextBtn
 nextBtn.addEventListener('click', handleNextBtnClick);
 function handleNextBtnClick() {
-  i++;
-  if(i === musicsData.length){
-    i = 0
+  if (shuffleState){
+    i = generateRandomNumber()
+  } else {
+    i++;
+    if(i === musicsData.length){
+      i = 0
+    } 
   }
-  showInformations()
-  playPauseToggle()
+  console.log(i)
+  playWhenClick()
 }
 // event previousBtn
 prevBtn.addEventListener('click', handlePreviousBtnClick);
 function handlePreviousBtnClick() {
-  i--
-  if(i < 0) {
-    i = musicsData.length-1
-  }
+  if (shuffleState){
+    i = generateRandomNumber();
+  } else {
+    i-- ;
+    if((i < 0)) {
+      i = musicsData.length-1
+    }
+  } 
+  console.log(i)
+  playWhenClick()
+  return
+}
+// handle Shuflle feature and shuffle Btn
+
+shuffleBtn.addEventListener('click', handeShuffleAction);
+const shuffleIcon = shuffleBtn.querySelector('img');
+let shuffleState = false;
+function handeShuffleAction(){
+    if(shuffleState){
+      shuffleIcon.src = "ressources/icons/shuffle-icon.svg"
+      shuffleIcon.alt = "shuffle disabled "
+      shuffleState = false;
+
+    }else {
+      shuffleIcon.src = "ressources/icons/shuffle.svg"
+      shuffleIcon.alt = "shuffle-icon enabled"
+      shuffleState = true;
+    }
+}
+function playWhenClick(){
   showInformations()
   playPauseToggle()
-
-  return
+}
+let randomNumber = null;
+let previousNumber = null;
+function generateRandomNumber(){
+  do {
+    randomNumber = Math.floor(Math.random() * musicsData.length);
+  } while (randomNumber === previousNumber);
+  previousNumber = randomNumber;
+  return randomNumber;
 }

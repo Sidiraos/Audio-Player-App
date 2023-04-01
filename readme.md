@@ -28,5 +28,11 @@
     <li>when music ended continue the next music </li>
 </ul>
 
+<ul>
+    <b style = "color : red ; font-size : 20px;">V1.5</b>
+    <h2>add JS features</h2>
+    <li>add shuffle feature</li>
+</ul>
+
 
 
