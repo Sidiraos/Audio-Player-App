@@ -43,15 +43,16 @@ p {
 button {
   background: transparent;
 }
-.artist-name {
+.title-name {
   font-weight: 600;
   font-size: 30px;
 }
 .track {
   position: relative;
-  height: 2px;
+  height: 4px;
   background: #f1f1f1;
   cursor: pointer;
+  border-radius: 15px;
 }
 .track .progressBar{
   position: absolute;
