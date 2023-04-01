@@ -14,16 +14,13 @@ body {
 #audioPlayer{
   padding: 25px 15px;
   max-width : 360px;
-  min-height: 80vh;
   background : linear-gradient(155deg, rgba(21,24,27,255) 6%, rgb(34 45 50) 61%, rgba(41,52,58,255) 95%);
   border-radius: 25px;
   color: #f1f1f1;
   user-select: none;
 
 }
-#controls img {
-  width: 30px;
-}
+
 #thumb {
   width: 95% ;
   margin: auto;
@@ -41,17 +38,23 @@ body {
 p {
   font-family: "lato" , serif;
 }
-button {
-  background: transparent;
-}
 .title-name {
   font-weight: 600;
   font-size: 30px;
 }
+.title-name + p {
+  font-size: 20px;
+}
+.artist-name , #trackBar {
+  color: rgba(74,76,78,255);
+}
+.order-list {
+  color: rgba(255, 255, 255, 0.8);
+}
 .track {
   position: relative;
-  height: 4px;
-  background: #f1f1f1;
+  height: 6px;
+  background: rgba(74,76,78,255);
   cursor: pointer;
   border-radius: 15px;
 }
@@ -60,9 +63,44 @@ button {
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: red;
+  background-color: #96fafc;
 }
 #controls {
   display: flex;
   justify-content: flex-start;
+}
+#controls img {
+  width: 25px;
+}
+button {
+  background: transparent;
+  border: none;
+}
+#play {
+  background-color: #96fafc;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+#play img {
+  width: 40px;
+}
+#shuffle + div {
+  margin-left: 15%;
+}
+@media screen and (max-width: 350px) {
+  #title, #trackBar, #controls {
+    padding: 20px 10px;
+}
+body {
+  padding: 0;
+}
+#audioPlayer {
+  min-height: 100vh;
+}
+#shuffle + div {
+  margin-left: auto;
+}
 }

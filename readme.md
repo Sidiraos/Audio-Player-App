@@ -34,5 +34,11 @@
     <li>add shuffle feature</li>
 </ul>
 
+<ul>
+    <b style = "color : red ; font-size : 20px;">V1.6</b>
+    <h2>add css features</h2>
+    <li>improved design</li>
+</ul>
+
 
 
