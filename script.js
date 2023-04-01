@@ -62,3 +62,18 @@ const progressBar = track.querySelector('.progressBar');
 function updateProgressBar(currentTime , totalDuration , el){
     el.style.width = `${(currentTime / totalDuration ) * 100}%`
 }
+
+track.addEventListener('click', changeCurrentTime)
+
+function changeCurrentTime(e){
+  let trackRect = track.getBoundingClientRect();
+  let progressBarRect = progressBar.getBoundingClientRect();
+  let progressBarPosition = (e.clientX - progressBarRect.left) + 2
+  let progressBarWidth = Math.floor((progressBarPosition / trackRect.width )*100)
+  let currentTime = (progressBarWidth * audio.duration) / 100;
+  audio.currentTime = currentTime;
+  console.log(audio.currentTime)
+  console.log(audio.duration)
+  updateProgressBar(audio.currentTime , audio.duration , progressBar)
+
+}

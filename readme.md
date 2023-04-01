@@ -14,3 +14,11 @@
     <li>update progressBar when playing audio</li>
 </ul>
 
+<ul>
+    <b style = "color : red ; font-size : 20px;">V1.3</b>
+    <h2>add JS features</h2>
+    <li>when click on track bar current time & progressBar update</li>
+</ul>
+
+
+
