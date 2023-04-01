@@ -31,6 +31,7 @@ body {
   height: 100%;
   border-radius: 20px;
   object-fit: cover;
+  box-shadow: 0 3px 48px rgba(0, 0, 0);
 }
 #title , #trackBar , #controls {
   padding: 20px 50px;
@@ -42,14 +43,12 @@ p {
   font-weight: 600;
   font-size: 30px;
 }
-.title-name + p {
-  font-size: 20px;
-}
 .artist-name , #trackBar {
   color: rgba(74,76,78,255);
 }
 .order-list {
   color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
 }
 .track {
   position: relative;
