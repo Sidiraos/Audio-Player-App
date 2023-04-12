@@ -56,7 +56,8 @@ function onTimeUpdate(){
     playBtn.querySelector('img').src = 'ressources/icons/play-icon.svg'
     playBtn.querySelector('img').alt = 'play-icon';
     // add infinite loop for playist music when is finished is play and replay the next music
-    if(i < musicsData.length) {
+    if(currentMusicIndex < musicsData.length) {
+      // play the next music
       handleNextBtnClick();
     }
   }
@@ -76,6 +77,7 @@ function changeCurrentTime(e){
   let progressBarRect = progressBar.getBoundingClientRect();
   let progressBarPosition = (e.clientX - progressBarRect.left) + 2
   let progressBarWidth = Math.floor((progressBarPosition / trackRect.width )*100)
+  //  from the updateprogressbar function we took the math formula and we exctract the current Time
   let currentTime = (progressBarWidth * audio.duration) / 100;
   audio.currentTime = currentTime;
 }
@@ -86,18 +88,18 @@ const currentId = document.querySelector('.order-list');
 const thumbImg = document.querySelector('#thumb img');
 const audioSrc = audio.querySelector('source');
 
-let i = 0;
+let currentMusicIndex = 0;
 showInformations ();
 
 function showInformations () {
-  title.textContent = musicsData[i].title;
-  artist.textContent = musicsData[i].artist;
-  currentId.textContent = musicsData[i].id + '/' + musicsData.length;
-  thumbImg.src = `ressources/thumbs/${musicsData[i].title}.png`;
-  thumbImg.alt = `${musicsData[i].title} thumbnail`;
-  audio.src = `ressources/music/${musicsData[i].title}.mp3`;
+  title.textContent = musicsData[currentMusicIndex].title;
+  artist.textContent = musicsData[currentMusicIndex].artist;
+  currentId.textContent = musicsData[currentMusicIndex].id + '/' + musicsData.length;
+  thumbImg.src = `ressources/thumbs/${musicsData[currentMusicIndex].title}.png`;
+  thumbImg.alt = `${musicsData[currentMusicIndex].title} thumbnail`;
+  audio.src = `ressources/music/${musicsData[currentMusicIndex].title}.mp3`;
   audio.addEventListener('loadedmetadata' , handleChangeMetadata)
-  audioSrc.src =`ressources/music/${musicsData[i].title}.mp3`;
+  audioSrc.src =`ressources/music/${musicsData[currentMusicIndex].title}.mp3`;
   // console.log(title, artist, thumbImg, audioSrc)
 
 }
@@ -105,28 +107,28 @@ function showInformations () {
 nextBtn.addEventListener('click', handleNextBtnClick);
 function handleNextBtnClick() {
   if (shuffleState){
-    i = generateRandomNumber()
+    currentMusicIndex = generateRandomNumber()
   } else {
-    i++;
-    if(i === musicsData.length){
-      i = 0
+    currentMusicIndex++;
+    if(currentMusicIndex === musicsData.length){
+      currentMusicIndex = 0
     } 
   }
-  console.log(i)
+  console.log(currentMusicIndex)
   playWhenClick()
 }
 // event previousBtn
 prevBtn.addEventListener('click', handlePreviousBtnClick);
 function handlePreviousBtnClick() {
   if (shuffleState){
-    i = generateRandomNumber();
+    currentMusicIndex = generateRandomNumber();
   } else {
-    i-- ;
-    if((i < 0)) {
-      i = musicsData.length-1
+    currentMusicIndex-- ;
+    if((currentMusicIndex < 0)) {
+      currentMusicIndex = musicsData.length-1
     }
   } 
-  console.log(i)
+  console.log(currentMusicIndex)
   playWhenClick()
   return
 }
@@ -136,6 +138,7 @@ shuffleBtn.addEventListener('click', handeShuffleAction);
 const shuffleIcon = shuffleBtn.querySelector('img');
 let shuffleState = false;
 function handeShuffleAction(){
+    shuffleBtn.classList.toggle('active');
     if(shuffleState){
       shuffleIcon.src = "ressources/icons/shuffle-icon.svg"
       shuffleIcon.alt = "shuffle disabled "

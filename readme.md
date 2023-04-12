@@ -39,6 +39,12 @@
     <h2>add css features</h2>
     <li>improved design</li>
 </ul>
+<ul>
+    <b style = "color : red ; font-size : 20px;">V1.7</b>
+    <h2>improved css </h2>
+    <li>add animation when click shuffle</li>
+    <li>add linear background on progressBar</li>
+</ul>
 
 
 

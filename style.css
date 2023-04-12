@@ -62,7 +62,7 @@ p {
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: #96fafc;
+  background: linear-gradient(99deg, #3b6c6d , #96fafc 100%);
 }
 #controls {
   display: flex;
@@ -88,6 +88,18 @@ button {
 }
 #shuffle + div {
   margin-left: 15%;
+}
+/* animation */
+#shuffle.active {
+  animation: fadeIn 200ms ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @media screen and (max-width: 350px) {
   #title, #trackBar, #controls {
